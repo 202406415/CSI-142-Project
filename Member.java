@@ -1,29 +1,14 @@
-public class Member {
-    private String name;
-    private String id;
-    private String contact;
-    private double contribution;
+public class Member extends Person {
+    private Contribution contribution;  //composition
 
-    public Member(String name, String id, String contact, double contribution) {
-        this.name = name;
-        this.id = id;
-        this.contact = contact;
+    public Member(String name, String id, int cellphonoNo, Contribution contribution) {
+        super(name, id, cellphonoNo);
         this.contribution = contribution;
+    } 
+   
+    @Override
+    public String getDetails(){
+        return super.getDetails() + " Contribution:" + contribution.getDetails();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public double getContribution() {
-        return contribution;
-    }
 }

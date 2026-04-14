@@ -1,21 +1,15 @@
-public class Contribution {
-    private String id;
-    private String contact;
+public class Contribution{
     private double amount;
-    private String date;
+    private int date;
 
-    public Contribution(String id, String contact, double amount, String date) {
-        this.id = id;
-        this.contact = contact;
+    public Contribution(double amount, int date){
         this.amount = amount;
         this.date = date;
     }
-
-    public void recordContribution() {
-        System.out.println("Contribution recorded: " + amount + " by " + contact + " on " + date);
+    public double getAmount() {
+        return amount;
     }
-
-    public void viewContributionHistory() {
-        System.out.println("Contribution history for " + contact + ": " + amount + " on " + date);
+    public String getDetails() {
+        return "Ontshitse P" + amount + " kadi " + date;
     }
 }
