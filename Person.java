@@ -9,6 +9,6 @@ public class Person{
         this.cellphonoNo = cellphonoNo;
     }
     public String getDetails(){
-        return "name: "+ name +" id: " + id +" Mogala: "+ cellphonoNo;
+        return "Name: "+ name +" id: " + id +" contact: "+ cellphonoNo;
     }
 }
