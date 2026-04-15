@@ -10,6 +10,6 @@ public class Contribution{
         return amount;
     }
     public String getDetails() {
-        return "Ontshitse P" + amount + " kadi " + date;
+        return "contributed amount of P" + amount + " on " + date;
     }
 }
