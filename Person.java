@@ -4,7 +4,7 @@ public class Person{
     private int cellphonoNo;
 
     public Person(String name, String id,int cellphonoNo){
-        if (String.valueOf(cellphoneNo).length() != 8) {
+        if (String.valueOf(cellphonoNo).length() != 8) {
             throw new IllegalArgumentException("Cellphone number must be exactly 8 digits.");
         }
         this.name = name;
