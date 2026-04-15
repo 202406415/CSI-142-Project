@@ -3,6 +3,9 @@ public class Contribution{
     private int date;
 
     public Contribution(double amount, int date){
+        if(amount <= 0){
+            throw new IllegalArgumentException("Contribution amount must be positive.");
+        }
         this.amount = amount;
         this.date = date;
     }
