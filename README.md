@@ -5,3 +5,4 @@ This project is a digital Motshelo Management System  designed to help users to 
 - Oratile Lefatshe 202405825
 - Osi Elvis Mogologolo 202505927
 - Kgosi Pako Mogome 202504897
+- Katlo Prince Mongakgotla 202502281
