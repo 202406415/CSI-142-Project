@@ -1,7 +1,6 @@
 package motshelo.model;
 import motshelo.transactions.Contribution;
 
-
 public class Member extends Person {
     private Contribution contribution;  
 
