@@ -1,5 +1,6 @@
  package motshelo.main;
 import java.util.Scanner;
+import motshelo.group.Users;
 import motshelo.model.Member;
 import motshelo.transactions.Contribution;
 
@@ -7,11 +8,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int choice;
+        Users u = new Users("CS Project stokvel");
 
         do {
             System.out.println("\n==== MOTSHELO MENU =====");
-            System.out.println("1. Create Member");
+            System.out.println("1. Add Member");
             System.out.println("2. Exit");
+            System.out.println("3.Display");
             System.out.println("Choose Option: ");
              
             choice = in.nextInt();
@@ -31,8 +34,12 @@ public class Main {
 
         Contribution c = new Contribution(amount, date, id);
         Member m = new Member(name, id, cellphonoNo, c);
-        System.out.println("\nMember Details:");
-        System.out.println(m.getDetails());
+            u.addMembers(m);
+            System.out.println("Do u want to dispaly Members");
+            choice = in.nextInt();
+            if (choice==1){
+                u.displayMembers();
+            }
             break;
         case 2:
             System.out.println("Exiting system........");
