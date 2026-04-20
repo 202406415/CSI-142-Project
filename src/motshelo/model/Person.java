@@ -3,14 +3,19 @@ package motshelo.model;
 public class Person{
     private String name;
     private String id;
-    private int cellphonoNo;
+    private int cellphoneNo;
 
-    public Person(String name, String id,int cellphonoNo){
+    public Person(String name, String id,int cellphoneNo){
         this.name = name;
         this.id = id;
-        this.cellphonoNo = cellphonoNo;
+        this.cellphoneNo = cellphoneNo;
     }
+
+    public String getName() { return name; }
+    public String getId() { return id; }
+    public int getCellphoneNo() { return cellphoneNo; }
+    
     public String getDetails(){
-        return "name: "+ name +" id: " + id +" Mogala: "+ cellphonoNo;
+        return "name: "+ name +" id: " + id +" Mogala: "+ cellphoneNo;
     }
 }
