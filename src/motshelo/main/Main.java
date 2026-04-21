@@ -1,54 +1,94 @@
- package motshelo.main;
+package motshelo.main;
+
 import java.util.Scanner;
-import motshelo.group.Users;
+import motshelo.group.MotsheloGroup;
 import motshelo.model.Member;
 import motshelo.transactions.Contribution;
 
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        MotsheloGroup group = new MotsheloGroup("CS Project Stokvel");
+
         int choice;
-        Users u = new Users("CS Project stokvel");
 
         do {
-            System.out.println("\n==== MOTSHELO MENU =====");
+            System.out.println("\n==== MOTSHELO MENU ====");
             System.out.println("1. Add Member");
-            System.out.println("2. Exit");
-            System.out.println("3.Display");
-            System.out.println("Choose Option: ");
-             
+            System.out.println("2. Add Contribution");
+            System.out.println("3. Display Members");
+            System.out.println("4. Show Summary");
+            System.out.println("5. Exit");
+            System.out.print("Choose option: ");
+
             choice = in.nextInt();
             in.nextLine();
-        switch (choice) {
-            case 1:
-                System.out.println("Enter name: ");
-                    String name = in.nextLine();
-                System.out.println("Enter ID: ");
-                    String id = in.nextLine();
-                System.out.println("Enter Cellphone Number: ");
-                    int cellphonoNo = in.nextInt();
-                System.out.println("Enter Contribution amount: ");
-                    double amount = in.nextDouble();
-                System.out.println("Enter date: ");
-                    int date = in.nextInt();            
 
-        Contribution c = new Contribution(amount, date, id);
-        Member m = new Member(name, id, cellphonoNo, c);
-            u.addMembers(m);
-            System.out.println("Do u want to dispaly Members");
-            choice = in.nextInt();
-            if (choice==1){
-                u.displayMembers();
+            try {
+                switch (choice) {
+
+                    case 1:
+                        System.out.print("Enter name: ");
+                        String name = in.nextLine();
+
+                        System.out.print("Enter ID: ");
+                        String id = in.nextLine();
+
+                        System.out.print("Enter phone: ");
+                        int cellphoneNo = in.nextInt();
+
+                        Member m = new Member(name, id, cellphoneNo);
+                        group.addMember(m);
+
+                        System.out.println("Member added.");
+                        break;
+
+                    case 2:
+                        System.out.print("Enter Member ID: ");
+                        String memberId = in.nextLine();
+
+                        Member found = group.findMember(memberId);
+
+                        if (found == null) {
+                            System.out.println("Member not found.");
+                            break;
+                        }
+
+                        System.out.print("Enter amount: ");
+                        double amount = in.nextDouble();
+                        in.nextLine();
+
+                        System.out.print("Enter date: ");
+                        String date = in.nextLine();
+
+                        Contribution c = new Contribution(amount, date);
+                        found.addContribution(c);
+
+                        System.out.println("Contribution added.");
+                        break;
+
+                    case 3:
+                        group.displayMembers();
+                        break;
+
+                    case 4:
+                        group.showSummary();
+                        break;
+
+                    case 5:
+                        System.out.println("Exiting...");
+                        break;
+
+                    default:
+                        System.out.println("Invalid option.");
+                }
+            } catch (Exception e) {
+                System.out.println("Error: " + e.getMessage());
+                in.nextLine(); // clear input
             }
-            break;
-        case 2:
-            System.out.println("Exiting system........");
-            break;
-        default:
-            System.out.println("Invalid Option.");    
-        }
-      } while (choice != 2);
-        
+
+        } while (choice != 5);
+
+        in.close();
     }
 }
-

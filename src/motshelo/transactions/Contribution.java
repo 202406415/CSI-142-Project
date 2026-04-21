@@ -1,22 +1,28 @@
 package motshelo.transactions;
 
-public class Contribution{
-    private double amount;
-    private int date;
-    private String id;
+import motshelo.contracts.Displayable;
 
-    public Contribution(double amount, int date, String id){
+public class Contribution implements Displayable {
+    private double amount;
+    private String date;
+
+    public Contribution(double amount, String date) {
+        if (amount <= 0)
+            throw new IllegalArgumentException("Amount must be greater than 0");
+
+        if (date == null || date.isEmpty())
+            throw new IllegalArgumentException("Date cannot be empty");
+
         this.amount = amount;
         this.date = date;
-        this.id = id;
     }
+
     public double getAmount() {
         return amount;
     }
-    public String getId() {
-        return id;
-     }
+
+    @Override
     public String getDetails() {
-    return "Amount: " + amount + " Date: " + date + " ID: " + id;
+        return "Amount: P" + amount + " | Date: " + date;
     }
 }
