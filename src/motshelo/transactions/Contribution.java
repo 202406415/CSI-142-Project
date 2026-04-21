@@ -6,9 +6,18 @@ public class Contribution{
     private String id;
 
     public Contribution(double amount, int date, String id){
-        this.amount = amount;
+        setAmount(amount);
         this.date = date;
         this.id = id;
+    }
+    public void setAmount(double amount){
+        if(amount < 100){
+            System.out.println("Ao sisi, 100 upwards");
+            this.amount = 0.0;
+        }
+        else{
+            this.amount = amount;
+        }
     }
     public double getAmount() {
         return amount;
