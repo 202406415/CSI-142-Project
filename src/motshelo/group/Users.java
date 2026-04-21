@@ -18,4 +18,15 @@ public class Users {
             System.out.println(member.getDetails());
         }
     }
+    public void searchMember(String name){
+        for(Member member : members){
+            if(member.getName().equalsIgnoreCase(name)){
+                System.out.println(member.getDetails());
+            }
+            else{
+                System.out.println("Gaayo:)");
+            }
+
+        }
+    }
 }

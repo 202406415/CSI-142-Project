@@ -10,6 +10,10 @@ public class Person{
         this.id = id;
         this.cellphonoNo = cellphonoNo;
     }
+    public String getName(){
+        return name;
+    }
+    
     public String getDetails(){
         return "name: "+ name +" id: " + id +" Mogala: "+ cellphonoNo;
     }
