@@ -69,6 +69,7 @@ public class Main {
                         break;
 
                     case 3:
+                        group.sortMembers();
                         group.displayMembers();
                         break;
 

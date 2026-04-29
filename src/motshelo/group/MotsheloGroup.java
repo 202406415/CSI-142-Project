@@ -62,4 +62,17 @@ public class MotsheloGroup {
         System.out.println("Total Members: " + members.size());
         System.out.println("Total Contributions: P" + total);
     }
+    public void sortMembers(){
+        for(int i = 1; i < members.size(); i++){
+            Member key = members.get(i);
+            double keyR = key.getTotalContribution();
+            int j = i - 1;
+
+            if (j >= 0 && members.get(j).getTotalContribution() < keyR){
+                members.set(j+1, members.get(j));
+                j--;
+            }
+            members.set(j + 1, key);
+        }
+    }
 }
