@@ -15,13 +15,14 @@ public class Member extends Person implements Displayable {
     public void addContribution(Contribution c) {
         contributions.add(c);
     }
-
-    public double getTotalContribution() {
-        double total = 0;
-        for (Contribution c : contributions) {
-            total += c.getAmount();
+    public double getTotalContribution(){
+        return getTotalContribution(0);
+    }
+    public double getTotalContribution(int index){
+        if (index >= contributions.size()){
+            return 0;
         }
-        return total;
+        return contributions.get(index).getAmount() + getTotalContribution(index + 1);
     }
 
     @Override
